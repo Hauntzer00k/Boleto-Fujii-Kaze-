@@ -43,14 +43,15 @@
         scale="1.2 1.2 1.2">
       </a-image>
 
-      <!-- gatito -->
-      <a-entity
-        gltf-model="#modeloAR"
-        position="0 0.5 0"          
-        rotation="-90 0 180"       
-        scale="0.35 0.35 0.35"
-        animation-mixer="loop: repeat"
-        shadow="cast: true; receive: false">
+      <!-- Contenedor del gatito para mantenerlo frontal -->
+      <a-entity position="0 0.5 0" rotation="-90 0 0">
+        <a-entity
+          gltf-model="#modeloAR"
+          rotation="0 0 0"
+          scale="0.35 0.35 0.35"
+          animation-mixer="loop: repeat"
+          shadow="cast: true; receive: false">
+        </a-entity>
       </a-entity>
 
     </a-marker>
