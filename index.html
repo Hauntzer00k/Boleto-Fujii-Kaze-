@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
 
-  <!--  3D -->
+  <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
 
-  <!-- AR.js A-Frame -->
+  <!-- AR.js -->
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
 
   <title>AR Boleto Fujii Kaze</title>
@@ -22,7 +22,6 @@
 
 <body>
 
-  <!-- Escena AR -->
   <a-scene
       vr-mode-ui="enabled: false"
       embedded
@@ -31,19 +30,22 @@
 
     <!-- Activos -->
     <a-assets>
+      <!-- Tu modelo 3D -->
       <a-asset-item id="modeloAR" src="gatitogordito.glb" timeout="60000"></a-asset-item>
-      <img id="boleto" src="pattern-white.patt">
+      
+      <!-- Tu boleto -->
+      <img id="boleto" src="kazeboleto.jpg">
     </a-assets>
 
     <!-- Marcador VACÍO -->
     <a-marker type="pattern" url="marker.patt">
 
-      <!-- Boleto 2D -->
+      <!-- Imagen del boleto en AR -->
       <a-image
         src="#boleto"
         position="0 0 0"
         rotation="-90 0 0"
-        scale="1.5 1.5 1.5">
+        scale="1.2 1.2 1.2">
       </a-image>
 
       <!-- Modelo 3D -->
@@ -58,9 +60,7 @@
 
     </a-marker>
 
-    <!-- Cámara -->
     <a-entity camera></a-entity>
-
   </a-scene>
 
 </body>
