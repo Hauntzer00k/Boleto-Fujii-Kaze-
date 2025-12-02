@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AR Boleto – Fujii Kaze</title>
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.js"></script>
   </head>
 
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam;">
-      
-      <!-- MARCADOR AR (.patt) -->
-      <a-marker type="pattern" url="marker.patt">
-        
-        <!-- Modelo 3D -->
-<a-entity 
-  gltf-model="gatitogordito.glb"
-  scale="0.5 0.5 0.5"
-  rotation="0 0 0"
-  position="0 0 0">
-</a-entity>
 
+      <!-- Tu marcador -->
+      <a-marker type="pattern" url="marker.patt">
+
+        <!-- Tu modelo 3D -->
+        <a-entity 
+          gltf-model="gatitogordito.glb"
+          scale="0.4 0.4 0.4"
+          position="0 0 0"
+          rotation="0 0 0">
+        </a-entity>
 
       </a-marker>
 
