@@ -1,37 +1,51 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.2.4/aframe/build/aframe-ar.js"></script>
-    <style>
-      body, html {
-        margin: 0;
-        overflow: hidden;
-        background: #000;
-      }
-    </style>
-  </head>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
 
-  <body>
-    <a-scene
-      embedded
-      arjs="sourceType: webcam; debugUIEnabled: false;"
-      vr-mode-ui="enabled: false">
+  <!-- Sin título -->
+  <title></title>
 
-      <!-- Marcador -->
-      <a-marker type="pattern" url="marker.patt">
-<!-- gatito viendo hacia la cámara -->
-        <a-entity 
-          gltf-model="url(gato.gltf)"
-          position="0 0 0"
-          rotation="0 0 0"
-          scale="1 1 1">
-        </a-entity>
-      
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
 
-      </a-marker>
+  <style>
+    body{
+      margin:0;
+      overflow:hidden;
+    }
+  </style>
+</head>
+<body>
 
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+  <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;">
+
+    <a-assets>
+      <a-asset-item id="modeloAR" src="gatitogordito.glb"></a-asset-item>
+      <img id="boleto" src="kazeboleto.jpg">
+    </a-assets>
+
+    <a-marker type="pattern" url="marker.patt">
+
+      <a-image
+        src="#boleto"
+        position="0 0 0"
+        rotation="-90 0 0"
+        scale="1.2 1.2 1.2">
+      </a-image>
+
+      <a-entity
+        gltf-model="#modeloAR"
+        position="0 1 0"
+        rotation="-90 0 0"
+        scale="0.35 0.35 0.35">
+      </a-entity>
+
+    </a-marker>
+
+    <a-entity camera></a-entity>
+
+  </a-scene>
+
+</body>
 </html>
