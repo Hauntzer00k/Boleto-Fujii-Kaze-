@@ -32,9 +32,6 @@
 
     <!-- modelo-->
     <a-assets>
-      <!--
-        "timeout".
-      -->
       <a-asset-item id="modeloAR" src="gatitogordito.glb" timeout="60000"></a-asset-item>
     </a-assets>
 
@@ -48,12 +45,18 @@
         position="0 0 0"
         rotation="0 0 0"
         scale="0.35 0.35 0.35"
-
         animation-mixer="loop: repeat"
-
-        shadow="cast: true; receive: false;"
-      >
+        shadow="cast: true; receive: false;">
       </a-entity>
+
+      <!-- BOLETO en AR (imagen flotante) -->
+      <a-image
+        src="kazeboleto.jpg"
+        width="1.2"
+        height="0.7"
+        position="0 0.9 0"
+        rotation="0 0 0">
+      </a-image>
 
     </a-marker>
 
