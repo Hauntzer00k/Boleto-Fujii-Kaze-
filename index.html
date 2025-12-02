@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <title>AR Gatito</title>
 
   <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
@@ -22,7 +23,7 @@
 <body>
   <a-scene
       embedded
-      arjs="sourceType: webcam; debugUIEnabled: false;"
+      arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;"
       vr-mode-ui="enabled: false">
 
     <!-- Marcador -->
@@ -33,14 +34,14 @@
         gltf-model="url(gatitogordito.glb)"
         position="0 0 0"
         rotation="0 180 0"
-        scale="1 1 1">
+        scale="1 1 1"
+        animation-mixer>
       </a-entity>
 
     </a-marker>
 
     <!-- Cámara -->
     <a-entity camera></a-entity>
-
   </a-scene>
 </body>
 </html>
