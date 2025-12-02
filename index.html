@@ -2,11 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <title>Boleto AR - Fujii Kaze</title>
 
   <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
 
-  <!-- AR.js -->
+  <!-- AR.js actualizado -->
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
 
   <style>
@@ -25,21 +26,41 @@
       arjs="sourceType: webcam; debugUIEnabled: false;"
       vr-mode-ui="enabled: false">
 
-    <!-- Marcador -->
+    <!-- Activos -->
+    <a-assets>
+      <!-- Modelo 3D -->
+      <a-asset-item id="modeloAR" src="gatitogordito.glb" timeout="60000"></a-asset-item>
+      
+      <!--  boleto -->
+      <img id="boleto" src="kazeboleto.jpg">
+    </a-assets>
+
+    <!-- Marcador personalizado -->
     <a-marker type="pattern" url="marker.patt">
 
-      <!-- gatito de frente -->
-      <a-entity 
-        gltf-model="url(gato.gltf)"
+      <!-- Boleto en AR -->
+      <a-image
+        src="#boleto"
         position="0 0 0"
+        rotation="-90 0 0"
+        scale="1.2 1.2 1.2">
+      </a-image>
+
+      <!-- Modelo 3D -->
+      <a-entity
+        gltf-model="#modeloAR"
+        position="0 0.5 0"
         rotation="0 180 0"
-        scale="0.02 0.02 0.02">
+        scale="0.35 0.35 0.35"
+        animation-mixer="loop: repeat"
+        shadow="cast: true; receive: false;">
       </a-entity>
 
     </a-marker>
 
     <!-- Cámara -->
     <a-entity camera></a-entity>
+
   </a-scene>
 </body>
 </html>
