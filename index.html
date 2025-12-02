@@ -3,30 +3,39 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- Sin título -->
-  <title></title>
-
+  <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+
+  <!-- AR.js -->
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
 
   <style>
     body{
       margin:0;
+      padding:0;
       overflow:hidden;
     }
   </style>
 </head>
+
 <body>
 
-  <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;">
+  <a-scene
+      vr-mode-ui="enabled: false"
+      embedded
+      renderer="antialias: true; colorManagement: true; physicallyCorrectLights: true;"
+      arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;">
 
+    <!-- Activos -->
     <a-assets>
-      <a-asset-item id="modeloAR" src="gatitogordito.glb"></a-asset-item>
+      <a-asset-item id="modeloAR" src="gatitogordito.glb" timeout="60000"></a-asset-item>
       <img id="boleto" src="kazeboleto.jpg">
     </a-assets>
 
+    <!-- Marcador -->
     <a-marker type="pattern" url="marker.patt">
 
+      <!-- Boleto -->
       <a-image
         src="#boleto"
         position="0 0 0"
@@ -34,17 +43,19 @@
         scale="1.2 1.2 1.2">
       </a-image>
 
+      <!-- Modelo 3D corregido (mirando de frente) -->
       <a-entity
         gltf-model="#modeloAR"
         position="0 1 0"
         rotation="-90 0 0"
-        scale="0.35 0.35 0.35">
+        scale="0.35 0.35 0.35"
+        animation-mixer="loop: repeat"
+        shadow="cast: true; receive: false;">
       </a-entity>
 
     </a-marker>
 
     <a-entity camera></a-entity>
-
   </a-scene>
 
 </body>
