@@ -9,8 +9,6 @@
   <!-- AR.js -->
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
 
-  <title>Fujii Kaze</title>
-
   <style>
     body{
       margin:0;
@@ -30,17 +28,14 @@
 
     <!-- Activos -->
     <a-assets>
-      <!-- Tu modelo 3D -->
       <a-asset-item id="modeloAR" src="gatitogordito.glb" timeout="60000"></a-asset-item>
-      
-      <!-- Tu boleto -->
       <img id="boleto" src="kazeboleto.jpg">
     </a-assets>
 
-    <!-- Marcador VACÍO -->
+    <!-- Marcador -->
     <a-marker type="pattern" url="marker.patt">
 
-      <!-- Imagen del boleto en AR -->
+      <!-- Boleto -->
       <a-image
         src="#boleto"
         position="0 0 0"
@@ -52,7 +47,7 @@
       <a-entity
         gltf-model="#modeloAR"
         position="0 1 0"
-        rotation="0 0 0"
+        rotation="-90 0 0"
         scale="0.35 0.35 0.35"
         animation-mixer="loop: repeat"
         shadow="cast: true; receive: false;">
