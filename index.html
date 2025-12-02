@@ -1,26 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.js"></script>
-</head>
-<body style="margin: 0; overflow: hidden;">
-  <a-scene embedded arjs="sourceType: webcam;">
+  <meta charset="UTF-8">
 
+  <!--  3D -->
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+
+  <!-- AR.js A-Frame -->
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+
+  <title>AR Boleto Fujii Kaze</title>
+
+  <style>
+    body{
+      margin:0;
+      padding:0;
+      overflow:hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Escena AR -->
+  <a-scene
+      vr-mode-ui="enabled: false"
+      embedded
+      renderer="antialias: true; colorManagement: true; physicallyCorrectLights: true;"
+      arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;">
+
+
+    <!-- modelo-->
     <a-assets>
-      <a-asset-item id="miModelo" src="gatitogordito.glb"></a-asset-item>
+      <!--
+        "timeout".
+      -->
+      <a-asset-item id="modeloAR" src="gatitogordito.glb" timeout="60000"></a-asset-item>
     </a-assets>
 
+
+    <!-- Marcador  -->
     <a-marker type="pattern" url="marker.patt">
-      <a-entity 
-        gltf-model="#miModelo"
-        scale="0.4 0.4 0.4"
+
+      <!-- Modelo 3D  -->
+      <a-entity
+        gltf-model="#modeloAR"
         position="0 0 0"
-        rotation="0 0 0">
+        rotation="0 0 0"
+        scale="0.35 0.35 0.35"
+
+        animation-mixer="loop: repeat"
+
+        shadow="cast: true; receive: false;"
+      >
       </a-entity>
+
     </a-marker>
 
+
+    <!-- Cámara AR -->
     <a-entity camera></a-entity>
   </a-scene>
+
 </body>
 </html>
