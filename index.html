@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.js"></script>
-  </head>
+<head>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+  <a-scene embedded arjs="sourceType: webcam;">
 
-  <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs="sourceType: webcam;">
+    <a-assets>
+      <a-asset-item id="miModelo" src="gatitogordito.glb"></a-asset-item>
+    </a-assets>
 
-      <!-- Tu marcador -->
-      <a-marker type="pattern" url="marker.patt">
+    <a-marker type="pattern" url="marker.patt">
+      <a-entity 
+        gltf-model="#miModelo"
+        scale="0.4 0.4 0.4"
+        position="0 0 0"
+        rotation="0 0 0">
+      </a-entity>
+    </a-marker>
 
-        <!-- Tu modelo 3D -->
-        <a-entity 
-          gltf-model="gatitogordito.glb"
-          scale="0.4 0.4 0.4"
-          position="0 0 0"
-          rotation="0 0 0">
-        </a-entity>
-
-      </a-marker>
-
-      <a-entity camera></a-entity>
-
-    </a-scene>
-  </body>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
 </html>
